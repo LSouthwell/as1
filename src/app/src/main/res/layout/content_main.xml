@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.laura.southwel_fueltrack.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TabHost
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/tabHost"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"></TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tabLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Entries:                Total Fuel:"
+                        android:id="@+id/textView2"
+                        android:layout_marginTop="5dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/emptystring"
+                        android:id="@+id/TVtotalFuel"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="-24dp" />
+
+                    <ListView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/listView"
+                        android:layout_gravity="center_horizontal" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tabCreator"
+                    android:layout_width="fill_parent"
+                    android:layout_height="426dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Adding New Fuel Entry:"
+                        android:id="@+id/textView3"
+                        android:layout_above="@+id/txtDate"
+                        android:layout_toEndOf="@+id/textView" />
+
+                    <EditText
+                        android:id="@+id/txtDate"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:hint="Date:"
+                        android:inputType="date"
+                        android:layout_below="@+id/textView"
+                        android:layout_alignParentLeft="true" />
+
+                    <EditText
+                        android:id="@+id/txtStation"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:hint="Station:"
+                        android:inputType="textShortMessage"
+                        android:layout_below="@+id/txtDate"
+                        android:layout_alignParentLeft="true" />
+
+                    <EditText
+                        android:id="@+id/txtOdometer"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:hint="Odometer (km):"
+                        android:layout_alignParentStart="true"
+                        android:inputType="number"
+                        android:layout_below="@+id/txtStation"
+                        android:layout_alignParentLeft="true" />
+
+                    <EditText
+                        android:id="@+id/txtFuelGrade"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:hint="Fuel Grade:"
+                        android:inputType="textShortMessage"
+                        android:layout_below="@+id/txtOdometer"
+                        android:layout_alignParentLeft="true" />
+
+                    <EditText
+                        android:id="@+id/txtFuelAmount"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:hint="Fuel Amount (L):"
+                        android:inputType="number"
+                        android:layout_below="@+id/txtFuelGrade"
+                        android:layout_alignParentLeft="true" />
+
+                    <EditText
+                        android:id="@+id/txtFuelUnitCost"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:hint="Fuel Unit Cost (cents/L):"
+                        android:inputType="number"
+                        android:layout_below="@+id/txtFuelAmount"
+                        android:layout_alignParentLeft="true" />
+
+                    <EditText
+                        android:id="@+id/txtFuelTotalCost"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="horizontal"
+                        android:hint="Fuel Total Cost ($):"
+                        android:layout_alignParentStart="true"
+                        android:inputType="number|numberDecimal"
+                        android:layout_below="@+id/txtFuelUnitCost"
+                        android:layout_alignParentLeft="true" />
+
+                    <Button
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="Add Entry"
+                        android:id="@+id/btnAdd"
+                        android:layout_marginTop="35dp"
+                        android:layout_below="@+id/txtFuelTotalCost"
+                        android:layout_centerHorizontal="true" />
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>
